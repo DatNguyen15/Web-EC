@@ -20,7 +20,7 @@ export const getCategories = () => {
     .catch((err) => console.log(err));
 };
 
-export const getFilteredProducts = (skip, limit, filters) => {
+export const getFilteredProducts = (skip, limit, filters = {}) => {
   const data = {
     limit,
     skip,
