@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import ShowImage from "./ShowImage";
 import "../dist/css/reset.css";
 import "../dist/css/cardproduct.css";
-import "@fortawesome/fontawesome-free/css/all.css";
 const Card = ({ product }) => {
   return (
     <div className="col-sm-2 col-md-4 mb-3">
@@ -16,9 +15,7 @@ const Card = ({ product }) => {
           </div>
           <div className="desc"></div>
           <p className="pt-3">Description: {product.description}</p>
-          <p>
-            Price: {product.price}$<i className="fas fa-star"></i>
-          </p>
+          <p>Price: {product.price}$</p>
           <Link to="/">
             <div class="button-card">
               <button className="btns1">View Product</button>
