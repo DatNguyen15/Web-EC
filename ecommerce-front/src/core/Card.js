@@ -18,12 +18,8 @@ const Card = ({ product }) => {
           <p>Price: {product.price}$</p>
           <Link to="/">
             <div class="button-card">
-
-              <button className="btns1 btn">View Product</button>
-              <button className="btns2 btn">Add To Card</button>
-
-           
-
+              <button className="btns1">View Product</button>
+              <button className="btns2">Add to card</button>
             </div>
           </Link>
         </div>
