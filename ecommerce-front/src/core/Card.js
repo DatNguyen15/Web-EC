@@ -31,7 +31,7 @@ const Card = ({ product }) => {
           <Link to={`/product/${product._id}`}>
             <div class="button-card">
               <button className="btns1 btn">View Product</button>
-              <button className="btns2 btn">Add to card</button>
+              <button className="btns2 btn">Add To Card</button>
             </div>
           </Link>
         </div>
