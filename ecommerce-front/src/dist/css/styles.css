@@ -9,6 +9,8 @@
   animation: Gradient 12s ease infinite;
   border-radius: 0;
 }
+/*cart badge*/
+
 @-webkit-keyframes Gradient {
   0% {
     background-position: 0% 50%;

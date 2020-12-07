@@ -20,14 +20,14 @@
   }
 }
 .card {
-  position: relative;
-  &:after {
-    position: absolute;
-    background-color: #333;
-    content: "";
-    top: 0;
-    left: 0;
-  }
+  //position: relative;
+  // &:after {
+  //   position: absolute;
+  //   background-color: #333;
+  //   content: "";
+  //   top: 0;
+  //   left: 0;
+  // }
   .button-card {
     .btns1 {
       padding: 10px 20px;
