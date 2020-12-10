@@ -3,7 +3,7 @@ import { API } from "./../config";
 
 const ShowImage = ({ item, url }) => (
   <div className="product-img">
-    <div class="img-hover" style={{ width: "300px", height: "300px" }}>
+    <div class="img-hover">
       <img
         src={`${API}/${url}/photo/${item._id}`}
         alt={item.name}

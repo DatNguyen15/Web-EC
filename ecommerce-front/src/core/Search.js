@@ -63,9 +63,7 @@ const Search = () => {
     if (searched && results.length < 1) {
       return (
         <h4 className="mt-4 mb-4">
-          Result: <span style={{ color: "red" }}>No products found...</span>
-          <i style={{ color: "red" }} className="fas fa-sad-tear"></i>
-          <i style={{ color: "red" }} className="fas fa-sad-tear"></i>
+          Result: <span style={{ color: "red" }}>Not Found.</span>
           <i style={{ color: "red" }} className="fas fa-sad-tear"></i>
         </h4>
       );
