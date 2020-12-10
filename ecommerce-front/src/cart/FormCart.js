@@ -21,9 +21,15 @@ const FormCart = ({
       cartUpdate && (
         <div>
           <input
-            style={{ width: "20%", pading: "3px", borderRadius: "3px" }}
+            style={{
+              width: "20%",
+              pading: "3px",
+              borderRadius: "3px",
+              marginLeft: "10px",
+            }}
             type="number"
             value={count}
+            min="1"
             onChange={handleChange(product._id)}
           />
         </div>
@@ -54,7 +60,7 @@ const FormCart = ({
       <td></td>
       <td></td>
       <td></td>
-      <td>
+      <td className="size">
         <ShowImage item={product} url="product" />
       </td>
       <td>{showCartUpdateOption(cartUpdate)}</td>

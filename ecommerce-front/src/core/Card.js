@@ -23,7 +23,7 @@ const Card = ({ product }) => {
   };
   const shouldRedirect = (redirect) => {
     if (redirect) {
-      return <Redirect to="/cart" />;
+      return <Redirect to="/" />;
     }
   };
   return (
@@ -44,7 +44,7 @@ const Card = ({ product }) => {
           <br />
 
           <div class="button-card">
-            <Link to={`product/&{product._id}`}>
+            <Link to={`product/${product._id}`}>
               <button className="btns1 btn">View Product</button>
             </Link>
 
