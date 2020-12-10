@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 import Layout from "../core/Layout";
 import FormCart from "./FormCart";
 import Checkout from "./Checkout";
-import LoginCheckout from "./LoginCheckout";
-import "../dist/css/cart.css";
+
 const Cart = () => {
   const [items, setItems] = useState([]);
 
@@ -18,8 +17,8 @@ const Cart = () => {
       <div>
         <h2>Your cart has {`${items.length}`} items</h2>
         <hr />
-        <div className="row">
-          <div className="col-md-12">
+        <div className="">
+          <div className="">
             <table className="table">
               <thead style={{ background: "black", color: "whitesmoke" }}>
                 <tr>
@@ -45,14 +44,11 @@ const Cart = () => {
                 ))}
                 <tr>
                   <td colSpan="7"></td>
-                  <td>Total Carts</td>
-                  <Checkout products={items} />
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
-        <LoginCheckout />
       </div>
     );
   };
@@ -69,7 +65,14 @@ const Cart = () => {
       description="Manage your cart items. Add remove checkout or continue shopping."
       className=" container "
     >
-      {items.length > 0 ? showItems(items) : noItemsMessage()}
+      <div className="row">
+        <div className="col-8">
+          {items.length > 0 ? showItems(items) : noItemsMessage()}
+        </div>
+        <div className="col-4">
+          <Checkout products={items} />
+        </div>
+      </div>
     </Layout>
   );
 };

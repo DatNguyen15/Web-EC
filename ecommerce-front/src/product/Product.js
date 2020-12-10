@@ -2,16 +2,17 @@ import React, { useEffect, useState } from "react";
 import Layout from "./../core/Layout";
 import { getProducts, read, listRelated } from "./../core/apiCore";
 import Card from "../core/Card";
-import ShowImage from "./../core/ShowImage";
 import { API } from "./../config";
 import "../dist/css/productDetail.css";
 import "../dist/css/reset.css";
 import { Link } from "react-router-dom";
+import { addItem } from "./../cart/cartHelpers";
 
 const Product = (props) => {
   const [product, setProduct] = useState({});
   const [relatedProduct, setRelatedProduct] = useState([]);
   const [error, setError] = useState(false);
+  const [redirect, setRedirect] = useState(false);
 
   const loadSingleProduct = (productId) => {
     read(productId).then((data) => {
@@ -28,6 +29,11 @@ const Product = (props) => {
           }
         });
       }
+    });
+  };
+  const addToCart = () => {
+    addItem(product, () => {
+      setRedirect(true);
     });
   };
 
@@ -70,7 +76,7 @@ const Product = (props) => {
             </div>
             <Link>
               <div className="bt-card">
-                <button className="add-cart">
+                <button onClick={addToCart} className="add-cart">
                   <i class="fas fa-cart-plus"></i>
                 </button>
               </div>
@@ -82,7 +88,7 @@ const Product = (props) => {
             Name: <span>{product.name}</span>
           </h4>
           <h4>
-            Price:{" "}
+            Price:
             <span className="red">
               {product.price}
               <i class="fas fa-dollar-sign"></i>
