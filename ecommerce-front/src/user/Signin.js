@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import Layout from "../core/Layout";
-import { Redirect } from "react-router-dom";
 
+import { Link, Redirect } from "react-router-dom";
+import Menu from "../core/Menu";
+import "../dist/css/login.css";
 import { signin, authenticate, isAuthenticated } from "./../auth/index";
 
 const Signin = () => {
@@ -37,7 +38,7 @@ const Signin = () => {
 
   const signInForm = () => (
     <div className="">
-      <form>
+      {/* <form>
         <div className="form-group">
           <label className="text-muted">Email</label>
           <input
@@ -60,22 +61,77 @@ const Signin = () => {
         <button onClick={clickSubmit} className="btn btn-primary">
           Submit
         </button>
+      </form> */}
+      <form className="loginf">
+        <div className="head mb-5">
+          <h3>
+            Sign In <i class="fas fa-user-circle"></i>
+          </h3>
+        </div>
+
+        <div className="form-group mb-4">
+          <label>Email:</label>
+
+          <input
+            placeholder="Enter email"
+            onChange={handleChange("email")}
+            type="email"
+            className="form-control"
+            value={email}
+          />
+        </div>
+
+        <div className="form-group mb-5">
+          <label>Password:</label>
+          <input
+            type="password"
+            className="form-control"
+            onChange={handleChange("password")}
+            placeholder="Enter password"
+            value={password}
+          />
+        </div>
+
+        <div className="form-group">
+          <div className="custom-control custom-checkbox  conditions">
+            <input
+              type="checkbox"
+              className="custom-control-input"
+              id="customCheck1"
+            />
+            <label className="custom-control-label" htmlFor="customCheck1">
+              Remember me
+            </label>
+          </div>
+        </div>
+
+        <button
+          onClick={clickSubmit}
+          type="submit"
+          className=" btn-block hover-btn"
+        >
+          Login
+        </button>
+        <div className="copy-right text-center">
+          <p>© 2020 Invent Signup. All rights reserved | Design by DatNguyen</p>
+          <a href="/" target="_blank">
+            ZaZou
+          </a>
+        </div>
       </form>
     </div>
   );
   const showError = () => (
-    <div
-      className="alert alert-danger"
-      style={{ display: error ? "" : "none" }}
-    >
+    <div className="error" style={{ display: error ? "" : "none" }}>
+      <i class="fa fa-times-circle"></i>
       {error}
     </div>
   );
 
   const showLoading = () =>
     loading && (
-      <div className="alert alert-info">
-        <h2>Loading...</h2>
+      <div className="loading">
+        <h5>Loading...</h5>
       </div>
     );
 
@@ -92,16 +148,43 @@ const Signin = () => {
     }
   };
   return (
-    <Layout
-      title="Signin"
-      description="Signup to EC Web"
-      className="container col-md-8 offset-md-2"
-    >
-      {showLoading()}
-      {showError()}
-      {signInForm()}
-      {redirectUser()}
-    </Layout>
+    <div>
+      <Menu />
+      <div className="row">
+        <div className="col-8">
+          <div className="content">
+            <div className="main-content">
+              <h2>WELLCOME TO ZAZOU</h2>
+              <p>
+                Zazou is the best choose for you. Please login for order
+                product. If you don't have account. Press the button REGISTER
+                for create new account!!!
+              </p>
+
+              <Link to="/signup">
+                <button href="/signup" className="res">
+                  Register
+                  <i
+                    style={{ fontSize: "25px", paddingLeft: "10px" }}
+                    class="fas fa-paper-plane"
+                  ></i>
+                </button>
+              </Link>
+            </div>
+          </div>
+        </div>
+        <div className="col-4 ">
+          <div className="infor">
+            {showLoading()}
+            {showError()}
+          </div>
+          <div className="login">
+            {signInForm()}
+            {redirectUser()}
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

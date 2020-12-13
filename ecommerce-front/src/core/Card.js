@@ -10,9 +10,19 @@ const Card = ({ product }) => {
   const [redirect, setRedirect] = useState(false);
   const showStock = (quantity) => {
     return quantity > 0 ? (
-      <span className="badge badge-primary badge-pill">In Stock</span>
+      <span
+        style={{ background: "green" }}
+        className="ani badge badge-primary badge-pill"
+      >
+        In Stock
+      </span>
     ) : (
-      <span className="badge badge-primary badge-pill">Out of Stock</span>
+      <span
+        style={{ background: "red", color: "#fff" }}
+        className="badge badge-primary badge-pill"
+      >
+        Out of Stock
+      </span>
     );
   };
 
@@ -30,17 +40,23 @@ const Card = ({ product }) => {
     <div className="col-sm-6 col-lg-4 ">
       <div className="card mb-4">
         <div className="card-header name-product">{product.name}</div>
+        {showStock(product.quantity)}
         <div className="card-body">
           {shouldRedirect(redirect)}
+
           <div className="hide-img">
             <ShowImage item={product} url="product" />
           </div>
-          <div className="desc"></div>
-          <p className="pt-3">Description: {product.description}</p>
-          <p>
-            Price: {product.price}$<i className="fas fa-star"></i>
+          <p className=" no-bt pt-1">Description: {product.description}</p>
+          <p className="no-bt">Price: {product.price}$</p>
+          <p className="no-bt pr-1">
+            Rating:
+            <i className="i fas fa-star"></i>
+            <i className="i fas fa-star"></i>
+            <i className="i fas fa-star"></i>
+            <i className="i fas fa-star"></i>
+            <i className="i fas fa-star"></i>
           </p>
-          {showStock(product.quantity)}
           <br />
 
           <div class="button-card">

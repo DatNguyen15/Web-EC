@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Layout from "../core/Layout";
 import FormCart from "./FormCart";
 import Checkout from "./Checkout";
-
+import "../dist/css/cart.css";
 const Cart = () => {
   const [items, setItems] = useState([]);
 
@@ -43,7 +43,7 @@ const Cart = () => {
                   />
                 ))}
                 <tr>
-                  <td colSpan="7"></td>
+                  <td colSpan="12"></td>
                 </tr>
               </tbody>
             </table>
