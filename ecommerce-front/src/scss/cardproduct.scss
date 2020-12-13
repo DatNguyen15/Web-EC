@@ -20,6 +20,10 @@
     .product-img {
       width: 300px;
       height: 300px;
+      .img-hover {
+        width: 300px;
+        height: 300px;
+      }
     }
   }
 }
@@ -60,4 +64,13 @@
       }
     }
   }
+}
+.card {
+  box-shadow: 0px 0px 4px -1px #333;
+}
+.no-bt {
+  margin-bottom: 5px;
+}
+.i {
+  color: #ffd700;
 }

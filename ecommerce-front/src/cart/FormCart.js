@@ -28,7 +28,7 @@ const FormCart = ({
               marginLeft: "10px",
             }}
             type="number"
-            value={count}
+            //value={count}
             min="1"
             onChange={handleChange(product._id)}
           />

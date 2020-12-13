@@ -7,6 +7,7 @@ import {
 } from "../braintree/apiBraintree";
 import DropIn from "braintree-web-drop-in-react";
 import { emptyCart } from "./cartHelpers";
+import { createOrder } from "./../core/apiCore";
 
 const Checkout = ({ products }) => {
   const [data, setData] = useState({
@@ -41,6 +42,12 @@ const Checkout = ({ products }) => {
     getToken(userId, token);
   }, []);
 
+  const handleAddress = (event) => {
+    setData({ ...data, address: event.target.value });
+  };
+
+  let deliveryAddress = data.address;
+
   const buy = () => {
     setData({ loading: true });
     //send the nonce to your server
@@ -67,12 +74,26 @@ const Checkout = ({ products }) => {
         processPayment(userId, token, paymentData)
           .then((response) => {
             //console.log(response)
-            setData({ ...data, success: response.success });
+            const createOrderData = {
+              products: products,
+              transaction_id: response.transaction.id,
+              amount: response.transaction.amount,
+              address: deliveryAddress,
+            };
+            createOrder(userId, token, createOrderData)
+              .then((response) => {
+                emptyCart(() => {
+                  console.log("payment success end empty cart");
+                  setData({ loading: false, success: true });
+                });
+              })
+              .catch((error) => {
+                console.log(error);
+                setData({ loading: false });
+              });
             //empty cart
-            emptyCart(() => {
-              console.log("payment success end empty cart");
-              setData({ loading: false });
-            });
+            // setData({ ...data, success: response.success });
+
             //creat oder
           })
           .catch((error) => {
@@ -104,6 +125,15 @@ const Checkout = ({ products }) => {
     <div onBlur={() => setData({ ...data, error: "" })}>
       {data.clientToken !== null && products.length > 0 ? (
         <div>
+          <div className="form-group">
+            <label className="text">Delivery address:</label>
+            <textarea
+              onChange={handleAddress}
+              className="form-control"
+              //value={data.address}
+              placeholder="Type your delivery address here..."
+            />
+          </div>
           <DropIn
             options={{
               authorization: data.clientToken,
@@ -138,6 +168,7 @@ const Checkout = ({ products }) => {
       Thanks ! Your payment was successful!
     </div>
   );
+
   const showLoading = (loading) => loading && <h3>Loading...</h3>;
   return (
     <div>
