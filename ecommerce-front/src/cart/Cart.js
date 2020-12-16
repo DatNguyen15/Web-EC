@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getCart } from "./cartHelpers";
+import { getCart, updateItem } from "./cartHelpers";
 import { Link } from "react-router-dom";
 import Layout from "../core/Layout";
 import FormCart from "./FormCart";

@@ -83,21 +83,21 @@ exports.update = (req, res) => {
         error: "Image could not be uploaded",
       });
     }
-    //check for all fields
-    const { name, description, price, category, quantity, shipping } = fields;
+    // //check for all fields
+    // const { name, description, price, category, quantity, shipping } = fields;
 
-    if (
-      !name ||
-      !description ||
-      !price ||
-      !category ||
-      !quantity ||
-      !shipping
-    ) {
-      return res.status(400).json({
-        error: "All fields are required",
-      });
-    }
+    // if (
+    //   !name ||
+    //   !description ||
+    //   !price ||
+    //   !category ||
+    //   !quantity ||
+    //   !shipping
+    // ) {
+    //   return res.status(400).json({
+    //     error: "All fields are required",
+    //   });
+    // }
 
     let product = req.product;
     product = _.extend(product, fields);
