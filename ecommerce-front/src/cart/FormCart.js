@@ -27,6 +27,7 @@ const FormCart = ({
               borderRadius: "3px",
               marginLeft: "10px",
             }}
+            placeholder="1"
             type="number"
             //value={count}
             min="1"

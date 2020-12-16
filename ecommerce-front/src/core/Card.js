@@ -11,7 +11,7 @@ const Card = ({ product }) => {
   const showStock = (quantity) => {
     return quantity > 0 ? (
       <span
-        style={{ background: "green" }}
+        style={{ background: "#1db954" }}
         className="ani badge badge-primary badge-pill"
       >
         In Stock
