@@ -18,7 +18,7 @@ const Checkbox = ({ categories, handleFilters }) => {
     handleFilters(newCheckedCategoryId);
   };
   return categories.map((c, i) => (
-    <div key={i} className="list-unstyled">
+    <div key={i} className="list-unstyled" style={{ marginBottom: "10px" }}>
       <input
         onChange={handleToggle(c._id)}
         value={checked.indexOf(c._id === -1)}

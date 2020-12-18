@@ -5,7 +5,7 @@ import "../../node_modules/slick-carousel/slick/slick-theme.css";
 import "../dist/css/carousel.css";
 const Carousel = () => {
   const settings = {
-    dots: true,
+    dots: false,
     autoplay: true,
     autoplaySpeed: 2000,
     infinite: true,

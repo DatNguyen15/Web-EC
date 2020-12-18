@@ -1,0 +1,235 @@
+.mains {
+  background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.57),
+      rgba(0, 0, 0, 0.31)
+    ),
+    url(https://cdn.shopify.com/s/files/1/0019/1843/5381/products/iPhone-black-table-1_2000x.jpg?v=1524659430)
+      no-repeat center;
+  background-size: cover;
+  height: 100vh;
+  background-attachment: fixed;
+  margin-bottom: 100px;
+
+  .contents {
+    padding-top: 20px;
+
+    form {
+      padding: 20px;
+      background: #fff;
+      height: 580px;
+      width: 400px;
+      border-radius: 4px;
+      h2 {
+        font-size: 25px;
+        line-height: 30px;
+        color: black;
+      }
+      .main-field {
+        margin-top: 20px;
+        position: relative;
+        input {
+          background-color: rgb(255, 255, 255);
+          width: 100%;
+          border: 1px solid #beced0;
+          padding: 15px 0px 15px 45px;
+          border-radius: 4px;
+          font-size: 16px;
+          background-color: rgba(#d1d7d8, 0.1);
+        }
+        span {
+          position: absolute;
+          top: 16px;
+          left: 15px;
+
+          color: #666;
+          font-size: 14px;
+          padding-right: 10px;
+          border-right: 1px solid rgba(#666, 0.1);
+        }
+      }
+      .flexs {
+        margin-top: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        button {
+          border: 1px solid black;
+          background-color: black;
+          padding: 13px 40px;
+          border-radius: 4px;
+          color: #fff;
+          font-size: 15px;
+          transition: all 0.4s;
+          cursor: pointer;
+          &:hover {
+            background-color: #fff;
+
+            color: black;
+          }
+        }
+        .conditions {
+          margin-left: 20px;
+
+          input {
+            display: none;
+            &:checked {
+              ~ label::after {
+                display: block;
+              }
+            }
+          }
+          label {
+            cursor: pointer;
+            position: relative;
+            margin-left: 10px;
+            font-size: 16px;
+            line-height: 18px;
+            color: #333333;
+            &::before {
+              content: "";
+              position: absolute;
+              height: 15px;
+              width: 15px;
+              border: 1px solid #e1e9f0;
+              background-color: #e1e9f0;
+              top: 1px;
+              left: -25px;
+            }
+            &::after {
+              content: "\f00c";
+              font-family: "Font Awesome 5 Free";
+              position: absolute;
+              font-weight: 505;
+              font-size: 14px;
+              height: 15px;
+              width: 15px;
+              color: #fff;
+              background-color: black;
+              border: 1px solid black;
+              text-align: center;
+              line-height: 15px;
+              top: 1px;
+              left: -25px;
+              display: none;
+            }
+          }
+        }
+      }
+      .or {
+        text-align: center;
+        margin-top: 30px;
+        span {
+          font-size: 14px;
+          height: 40px;
+          width: 40px;
+          font-weight: bold;
+          line-height: 40px;
+          background-color: #f7f7f7;
+          border-radius: 50%;
+          padding: 10px;
+          position: relative;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 17px;
+            left: 35px;
+            border-bottom: 1px solid #beced0;
+            width: 150px;
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            top: 17px;
+            left: -150px;
+            border-bottom: 1px solid #beced0;
+            width: 150px;
+          }
+        }
+      }
+      .sosial {
+        text-align: center;
+        margin-top: 5px;
+        .fa-facebook-f {
+          height: 35px;
+          width: 35px;
+          background-color: #3b5998;
+          color: #ffffff;
+          line-height: 35px;
+          text-align: center;
+          border-radius: 50%;
+          margin-right: 10px;
+          font-size: 14px;
+          transition: all 0.2s;
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+        .fa-google-plus-g {
+          height: 35px;
+          width: 35px;
+          background-color: #dd4b39;
+          color: #ffffff;
+          line-height: 35px;
+          text-align: center;
+          border-radius: 50%;
+          margin-left: 10px;
+          font-size: 14px;
+          transition: all 0.2s;
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+      .line {
+        border-bottom: 1px solid #beced0;
+        margin-top: 20px;
+      }
+      .footer {
+        margin-top: 25px;
+        font-size: 16px;
+
+        p {
+          a {
+            font-weight: bold;
+            color: #e48925;
+            transition: all 0.2s;
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.error {
+  border: 2px solid #dc3545;
+  color: #d8000c;
+  background-color: #ffd2d2;
+  margin-bottom: -10px !important;
+  padding: 10px 120px;
+}
+.w-error {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100% !important;
+}
+.loading {
+  border: 2px solid #007bff;
+  color: #00529b;
+  background-color: #bde5f8;
+  //   padding: 5px;
+  //   border-radius: 5px;
+  //   font-size: 13px;
+}
+// .t-center {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
