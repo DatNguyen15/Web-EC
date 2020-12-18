@@ -22,14 +22,16 @@ const FormCart = ({
         <div>
           <input
             style={{
-              width: "20%",
-              pading: "3px",
+              width: "40%",
+              pading: "5px",
               borderRadius: "3px",
               marginLeft: "10px",
             }}
+            placeholder="1"
             type="number"
             //value={count}
             min="1"
+            max={product.quantity}
             onChange={handleChange(product._id)}
           />
         </div>
@@ -56,7 +58,7 @@ const FormCart = ({
 
       <td>{product.name}</td>
 
-      <td>{product.price} $</td>
+      <td style={{ color: "red", fontWeight: "800" }}>{product.price} $</td>
       <td></td>
       <td></td>
       <td></td>
@@ -64,7 +66,9 @@ const FormCart = ({
         <ShowImage item={product} url="product" />
       </td>
       <td>{showCartUpdateOption(cartUpdate)}</td>
-      <td>{product.price * product.count} $</td>
+      <td style={{ color: "red", fontWeight: "800" }}>
+        {product.price * product.count} $
+      </td>
     </tr>
   );
 };

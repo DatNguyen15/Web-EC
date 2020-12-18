@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { getCart } from "./cartHelpers";
+import { getCart, updateItem } from "./cartHelpers";
 import { Link } from "react-router-dom";
 import Layout from "../core/Layout";
 import FormCart from "./FormCart";
 import Checkout from "./Checkout";
 import "../dist/css/cart.css";
+import Footer from "../core/Footer";
 const Cart = () => {
   const [items, setItems] = useState([]);
 
@@ -24,6 +25,7 @@ const Cart = () => {
                 <tr>
                   <th></th>
                   <th>Name</th>
+
                   <th>Price</th>
                   <th></th>
                   <th></th>
@@ -60,20 +62,23 @@ const Cart = () => {
   );
 
   return (
-    <Layout
-      title="Shop Cart"
-      description="Manage your cart items. Add remove checkout or continue shopping."
-      className=" container "
-    >
-      <div className="row">
-        <div className="col-8">
-          {items.length > 0 ? showItems(items) : noItemsMessage()}
+    <div>
+      <Layout
+        title="Shop Cart"
+        description="Manage your cart items. Add remove checkout or continue shopping."
+        className=" container mb-3"
+      >
+        <div className="row mt-3">
+          <div className="col-8">
+            {items.length > 0 ? showItems(items) : noItemsMessage()}
+          </div>
+          <div className="col-4 center">
+            <Checkout products={items} />
+          </div>
         </div>
-        <div className="col-4">
-          <Checkout products={items} />
-        </div>
-      </div>
-    </Layout>
+      </Layout>
+      <Footer />
+    </div>
   );
 };
 export default Cart;

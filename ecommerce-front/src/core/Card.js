@@ -11,7 +11,7 @@ const Card = ({ product }) => {
   const showStock = (quantity) => {
     return quantity > 0 ? (
       <span
-        style={{ background: "green" }}
+        style={{ background: "#1db954" }}
         className="ani badge badge-primary badge-pill"
       >
         In Stock
@@ -39,7 +39,7 @@ const Card = ({ product }) => {
   return (
     <div className="col-sm-6 col-lg-4 ">
       <div className="card mb-4">
-        <div className="card-header name-product">{product.name}</div>
+        <div className="card-header name-product center">{product.name}</div>
         {showStock(product.quantity)}
         <div className="card-body">
           {shouldRedirect(redirect)}
@@ -48,7 +48,9 @@ const Card = ({ product }) => {
             <ShowImage item={product} url="product" />
           </div>
           <p className=" no-bt pt-1">Description: {product.description}</p>
-          <p className="no-bt">Price: {product.price}$</p>
+          <p className="no-bt" style={{ fontWeight: "700", color: "red" }}>
+            Price: {product.price}$
+          </p>
           <p className="no-bt pr-1">
             Rating:
             <i className="i fas fa-star"></i>
@@ -64,8 +66,13 @@ const Card = ({ product }) => {
               <button className="btns1 btn">View Product</button>
             </Link>
 
-            <button href="/cart" onClick={addToCart} className="btns2 btn">
-              Add to card
+            <button
+              style={{ padding: "10px 55px" }}
+              href="/cart"
+              onClick={addToCart}
+              className="btns2 btn"
+            >
+              <i class="fas fa-cart-plus"></i>
             </button>
           </div>
         </div>

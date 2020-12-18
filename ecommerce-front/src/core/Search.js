@@ -52,19 +52,51 @@ const Search = () => {
   const searchMessage = (searched, results) => {
     if (searched && results.length > 0) {
       return (
-        <h4 className="mt-4 mb-4">
-          Result:
-          <span style={{ color: "#1db954" }}> {results.length} products. </span>
+        <h5
+          className="mt-4 mb-4 "
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontWeight: "100",
+          }}
+        >
+          <i
+            className="far fa-filter"
+            style={{ fontWeight: "700", marginRight: "10px" }}
+          >
+            :
+          </i>
+
+          <span style={{ color: "#1db954" }} style={{ fontSize: "15px" }}>
+            {results.length} products.{" "}
+          </span>
           <i style={{ color: "#1db954" }} className="fas fa-check"></i>
-        </h4>
+        </h5>
       );
     }
     if (searched && results.length < 1) {
       return (
-        <h4 className="mt-4 mb-4">
-          Result: <span style={{ color: "red" }}>Not Found. </span>
-          <i style={{ color: "red" }} className="fas fa-times"></i>
-        </h4>
+        <h5
+          className="mt-4 mb-4"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontWeight: "100",
+          }}
+        >
+          <i
+            className="far fa-filter"
+            style={{ fontWeight: "700", marginRight: "10px" }}
+          >
+            :
+          </i>
+          <span style={{ color: " #d8000c" }} style={{ fontSize: "15px" }}>
+            Not Found.
+          </span>
+          <i style={{ color: " #d8000c" }} className="fas fa-times"></i>
+        </h5>
       );
     }
   };
@@ -88,7 +120,7 @@ const Search = () => {
         <div className="input-group input-group-lg">
           <div className="input-group-prepend">
             <select
-              className="category-dropdown  mr-3"
+              className="category-dropdown mr-3"
               onChange={handleChange("category")}
             >
               <option value="All">Pick Category</option>
@@ -104,6 +136,7 @@ const Search = () => {
             className="form-control"
             onChange={handleChange("search")}
             placeholder="Search by name"
+            style={{ fontWeight: "200", fontSize: "18px" }}
           />
         </div>
         <div className="btn input-group-append ml-3" style={{ border: "none" }}>
