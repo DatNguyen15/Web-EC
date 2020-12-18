@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import { Link, Redirect } from "react-router-dom";
+import Footer from "../core/Footer";
 import Menu from "../core/Menu";
 import "../dist/css/login.css";
 import { signin, authenticate, isAuthenticated } from "./../auth/index";
@@ -123,7 +124,7 @@ const Signin = () => {
   );
   const showError = () => (
     <div className="error" style={{ display: error ? "" : "none" }}>
-      <i class="fa fa-times-circle"></i>
+      <i className="fa fa-times-circle"></i>
       {error}
     </div>
   );
@@ -184,6 +185,7 @@ const Signin = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

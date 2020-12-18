@@ -6,6 +6,9 @@ import Checkbox from "./Checkbox";
 import { prices } from "./fixedPrices";
 import RadioBox from "./RadioBox";
 import { getFilteredProducts } from "./apiCore";
+import Footer from "./Footer";
+import Carousel from "./Carousel";
+import Menu from "./Menu";
 
 const Shop = () => {
   const [myFilters, setMyFilters] = useState({
@@ -94,14 +97,41 @@ const Shop = () => {
   };
 
   return (
-    <Layout
-      title="Shop Page"
-      description="Search and find product of your choice"
-      className=" container-fluid "
-    >
-      <div className="row ">
-        <div className="col-3">
-          <h4>Filter by categories</h4>
+    <div>
+      <Layout
+        title="Shop Page"
+        description="Search and find product of your choice"
+        className=" "
+      ></Layout>
+      <Carousel />
+      <div className="row mb-5">
+        <div
+          className="col-3"
+          style={{
+            border: "1px solid black",
+            height: "500px",
+            // paddingTop: "60px",
+            background: "black",
+            color: "white",
+            //opacity: "0.8",
+            borderRadius: "10px",
+            boxShadow: "0px 0px 4px -1px #333",
+          }}
+        >
+          <h3
+            className="center"
+            style={{
+              background: "red",
+              display: "block",
+              color: "white",
+              padding: "10 px",
+            }}
+          >
+            FILTER
+          </h3>
+          <h4 className="center" style={{ color: "red", opacity: "0.8" }}>
+            By Categories
+          </h4>
           <ul className="ml-3">
             <Checkbox
               categories={categories}
@@ -109,7 +139,12 @@ const Shop = () => {
             />
           </ul>
 
-          <h4>Filter by price range</h4>
+          <h4
+            className="center"
+            style={{ marginTop: "70px", color: "red", opacity: "0.8" }}
+          >
+            By Price Range
+          </h4>
           <ul className="ml-3">
             <RadioBox
               prices={prices}
@@ -117,8 +152,27 @@ const Shop = () => {
             />
           </ul>
         </div>
+
         <div className="col-9">
-          <h2 className="mb-4">Products</h2>
+          <div
+            style={{
+              color: "whitesmoke",
+              fontWeight: "400",
+              border: "4px solid red",
+              background: "red",
+              padding: "4px",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              marginBottom: "20px",
+            }}
+          >
+            <h3 className="">Product</h3>
+            <i
+              style={{ fontSize: "1.75rem", fontWeight: "600" }}
+              className="far fa-angle-double-right"
+            ></i>
+          </div>
           <div className="row">
             {filteredResults.map((product, i) => (
               <Card key={i} product={product} />
@@ -128,7 +182,8 @@ const Shop = () => {
           {loadMoreButton()}
         </div>
       </div>
-    </Layout>
+      <Footer />
+    </div>
   );
 };
 
