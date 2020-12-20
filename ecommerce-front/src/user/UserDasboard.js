@@ -109,7 +109,7 @@ const Dashboard = () => {
       description={`Hello ${name}.`}
       className="container"
     >
-      <div className="row">
+      <div className="row my-4">
         <div className="col-3">{userLinks()}</div>
         <div className="col-9">
           {userInfo()}

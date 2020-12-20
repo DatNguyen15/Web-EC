@@ -92,10 +92,11 @@ const Profile = ({ match }) => {
           className="form-control"
           value={password}
         ></input>
-
-        <button onClick={clickSubmit} className="btn btn-primary">
-          Submit
-        </button>
+        <div className="mt-4 center">
+          <button onClick={clickSubmit} className="btn btn-primary">
+            Update Profile
+          </button>
+        </div>
       </div>
     </form>
   );
@@ -103,11 +104,21 @@ const Profile = ({ match }) => {
     <Layout
       title="Profile"
       description="Update your profile"
-      className=" container-fluid "
+      className=" container "
     >
-      <h2 className="mb-4">Profile Update</h2>
-      {profileUpdate(name, email, password)}
-      {redirectUser(success)}
+      <div className="row my-5">
+        <div className="col-4"></div>
+        <div
+          className="col-4"
+          style={{
+            boxShadow: "0px 0px 4px -1px #333",
+          }}
+        >
+          <h2 className="my-4 center">Profile Update</h2>
+          {profileUpdate(name, email, password)}
+          {redirectUser(success)}
+        </div>
+      </div>
     </Layout>
   );
 };
