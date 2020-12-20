@@ -6,11 +6,11 @@ const Footer = () => {
       <div className="foot container  ">
         <div className="column">
           <h4>
-            <a href="index.html">HDShop</a>
+            <a href="/">HDShop</a>
           </h4>
           <p>
             All rights reserved.© <br /> 2020{" "}
-            <a href="#" target="_blank">
+            <a href="/" target="_blank">
               DATNGUYEN
             </a>{" "}
           </p>

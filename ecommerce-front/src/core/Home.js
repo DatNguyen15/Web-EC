@@ -7,7 +7,7 @@ import Carousel from "./Carousel";
 import Menu from "./Menu";
 import Footer from "./Footer";
 import "../dist/css/home.css";
-
+import Scroll from "./Scroll";
 const Home = () => {
   const [productBySell, setProductBySell] = useState([]);
   const [productByArrival, setProductByArrival] = useState([]);
@@ -40,6 +40,7 @@ const Home = () => {
       <div className="">
         <Carousel />
       </div>
+      <Scroll showBelow={250} />
       <div className="container mt-3">
         <img
           style={{ cursor: "pointer", marginBottom: "20px" }}

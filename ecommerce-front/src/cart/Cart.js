@@ -16,7 +16,12 @@ const Cart = () => {
   const showItems = (items) => {
     return (
       <div>
-        <h2>Your cart has {`${items.length}`} items</h2>
+        <div className="center">
+          <h3>
+            <i style={{ color: "#1db954" }} className="fas fa-cart-plus"></i>:
+            <span style={{ fontSize: "22px" }}>{`${items.length}`} items</span>
+          </h3>
+        </div>
         <hr />
         <div className="">
           <div className="">
@@ -55,10 +60,10 @@ const Cart = () => {
     );
   };
   const noItemsMessage = () => (
-    <h2>
+    <h3>
       Your cart is empty. <br />
       <Link to="/shop">Continue Shopping</Link>
-    </h2>
+    </h3>
   );
 
   return (
@@ -72,7 +77,7 @@ const Cart = () => {
           <div className="col-8">
             {items.length > 0 ? showItems(items) : noItemsMessage()}
           </div>
-          <div className="col-4 center">
+          <div className="col-4 ">
             <Checkout products={items} />
           </div>
         </div>

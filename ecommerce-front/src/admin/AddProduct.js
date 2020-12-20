@@ -123,10 +123,10 @@ const AddProduct = () => {
       <div className="form-group">
         <label className="text-muted">Category</label>
         <select onChange={handleChange("category")} className="form-control">
-          <option>Please select</option>
+          <option style={{ color: "black" }}>Please select</option>
           {categories &&
             categories.map((c, i) => (
-              <option key={i} value={c._id}>
+              <option key={i} value={c._id} style={{ color: "black" }}>
                 {c.name}
               </option>
             ))}
@@ -135,9 +135,13 @@ const AddProduct = () => {
       <div className="form-group">
         <label className="text-muted">Shipping</label>
         <select onChange={handleChange("shipping")} className="form-control">
-          <option>Please select</option>
-          <option value="0">No</option>
-          <option value="1">Yes</option>
+          <option style={{ color: "black" }}>Please select</option>
+          <option value="0" style={{ color: "black" }}>
+            No
+          </option>
+          <option value="1" style={{ color: "black" }}>
+            Yes
+          </option>
         </select>
       </div>
       <div className="form-group">

@@ -8,6 +8,7 @@ import "../dist/css/reset.css";
 import { Link } from "react-router-dom";
 import { addItem } from "./../cart/cartHelpers";
 import Footer from "../core/Footer";
+import Scroll from "../core/Scroll";
 
 const Product = (props) => {
   const [product, setProduct] = useState({});
@@ -56,6 +57,7 @@ const Product = (props) => {
           Product <i class="fas fa-angle-double-right"></i>
         </h2>
       </div> */}
+        <Scroll showBelow={250} />
         <div className="row mt-3">
           <div className="col-4 col-pic">
             <div class="img-hover" style={{ width: "400x", height: "500px" }}>
@@ -76,18 +78,30 @@ const Product = (props) => {
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
               </div>
-              <Link>
+              {product.quantity > 0 && (
+                <Link>
+                  <div className="bt-card">
+                    <button onClick={addToCart} className="add-cart">
+                      <i class="fas fa-cart-plus"></i>
+                    </button>
+                  </div>
+                </Link>
+              )}
+              {product.quantity < 0 && (
                 <div className="bt-card">
-                  <button onClick={addToCart} className="add-cart">
-                    <i class="fas fa-cart-plus"></i>
+                  <button
+                    className="btn btn-danger"
+                    style={{ padding: "10px 40px" }}
+                  >
+                    Out Of Stock <i class="fas fa-exclamation-circle"></i>
                   </button>
                 </div>
-              </Link>
+              )}
             </div>
           </div>
           <div className="col-4 item">
             <h4>
-              Name: <span>{product.name}</span>
+              Name: <span style={{ fontWeight: "500" }}>{product.name}</span>
             </h4>
             <h4>
               Price:
@@ -101,7 +115,7 @@ const Product = (props) => {
             </h4>
             <div className="break"></div>
             <div className="grift">
-              <h4>Khuyến mãi và quà tặng:</h4>
+              <h4 style={{ fontWeight: "700" }}>Khuyến mãi và quà tặng:</h4>
               <ul>
                 <li>
                   <i class="fas fa-heart"></i> Dán bảo vệ sản phẩm trong 1 năm.
@@ -119,7 +133,7 @@ const Product = (props) => {
               </ul>
             </div>
             <div className="gop">
-              <h4>Ưu đãi trả góp: </h4>
+              <h4 style={{ fontWeight: "700" }}>Ưu đãi trả góp: </h4>
               <div className="pic">
                 <img src="https://xgear.vn/wp-content/uploads/2019/12/hdf-logo-768x171.png"></img>
                 <img src="https://xgear.vn/wp-content/uploads/2019/12/logo-mpos.png"></img>
@@ -219,7 +233,26 @@ const Product = (props) => {
             </Link>
           </div>
         </div>
-        <h4>Related Products</h4>
+        <div
+          className="h-content"
+          style={{
+            color: "whitesmoke",
+            fontWeight: "400",
+            border: "4px solid red",
+            background: "red",
+            padding: "4px",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginBottom: "20px",
+          }}
+        >
+          <h3 className="">Related Products </h3>
+          <i
+            style={{ fontSize: "1.75rem", fontWeight: "600" }}
+            className="far fa-angle-double-right"
+          ></i>
+        </div>
         <div className="row">
           {relatedProduct.map((p, i) => (
             <Card key={i} product={p} />

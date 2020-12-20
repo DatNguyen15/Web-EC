@@ -5,6 +5,7 @@ import "../dist/css/reset.css";
 import "../dist/css/cardproduct.css";
 import "@fortawesome/fontawesome-free/css/all.css";
 import { addItem } from "./../cart/cartHelpers";
+import Product from "./../product/Product";
 
 const Card = ({ product }) => {
   const [redirect, setRedirect] = useState(false);
@@ -65,15 +66,24 @@ const Card = ({ product }) => {
             <Link to={`product/${product._id}`}>
               <button className="btns1 btn">View Product</button>
             </Link>
-
-            <button
-              style={{ padding: "10px 55px" }}
-              href="/cart"
-              onClick={addToCart}
-              className="btns2 btn"
-            >
-              <i class="fas fa-cart-plus"></i>
-            </button>
+            {product.quantity < 0 && (
+              <button
+                style={{ padding: "10px 55px" }}
+                className="btn btn-danger"
+              >
+                <i class="fas fa-exclamation-circle"></i>
+              </button>
+            )}
+            {product.quantity > 0 && (
+              <button
+                style={{ padding: "10px 55px" }}
+                href="/cart"
+                onClick={addToCart}
+                className="btns2 btn"
+              >
+                <i class="fas fa-cart-plus"></i>
+              </button>
+            )}
           </div>
         </div>
       </div>
