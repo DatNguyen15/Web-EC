@@ -17,7 +17,7 @@ const Carousel = () => {
     <div className="carou">
       <Slider {...settings}>
         <div className="size-carou">
-          <img src="https://xgear.vn/wp-content/uploads/2020/11/TUF-F15-1.jpg"></img>
+          <img src="https://www.buyncellcanada.ca/wp-content/uploads/2018/11/Banner2.jpg"></img>
         </div>
         <div className="size-carou">
           <img src="https://xgear.vn/wp-content/uploads/2020/10/monitor_slider_compressed.jpg"></img>
@@ -32,7 +32,10 @@ const Carousel = () => {
           <img src="https://xgear.vn/wp-content/uploads/2020/11/amd-6000-seri.jpg"></img>
         </div>
         <div className="size-carou">
-          <img src="https://xgear.vn/wp-content/uploads/2020/02/Samsung-Super-Slim-Design.jpg"></img>
+          <img src="https://macbookgiasi.vn/wp-content/uploads/2020/12/banner-macbook-air-2017-mqd32-chinh-hang-vn-macbookgiasi.jpg"></img>
+        </div>
+        <div className="size-carou">
+          <img src="https://futureworldindia.in/wp-content/uploads/2020/12/MacBook-Pro_Web-Banner_Available-Now_2.jpg"></img>
         </div>
       </Slider>
     </div>

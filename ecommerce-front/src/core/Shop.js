@@ -9,6 +9,7 @@ import { getFilteredProducts } from "./apiCore";
 import Footer from "./Footer";
 import Carousel from "./Carousel";
 import Menu from "./Menu";
+import Scroll from "./Scroll";
 
 const Shop = () => {
   const [myFilters, setMyFilters] = useState({
@@ -60,7 +61,11 @@ const Shop = () => {
     return (
       size > 0 &&
       size >= limit && (
-        <button onClick={loadMore} className="btn btn-warning mb-5">
+        <button
+          onClick={loadMore}
+          className="btn btn-dark mb-5"
+          style={{ padding: "10px 40px" }}
+        >
           Load more
         </button>
       )
@@ -100,16 +105,17 @@ const Shop = () => {
     <div>
       <Layout
         title="Shop Page"
-        description="Search and find product of your choice"
-        className=" "
+        description="Wait Till We Get Our Technology On You."
+        className=""
       ></Layout>
+      <Scroll showBelow={250} />
       <Carousel />
       <div className="row mb-5">
         <div
           className="col-3"
           style={{
             border: "1px solid black",
-            height: "500px",
+            height: "90vh",
             // paddingTop: "60px",
             background: "black",
             color: "white",
@@ -179,7 +185,7 @@ const Shop = () => {
             ))}
           </div>
           <hr />
-          {loadMoreButton()}
+          <div className="center">{loadMoreButton()}</div>
         </div>
       </div>
       <Footer />

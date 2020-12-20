@@ -80,7 +80,7 @@ const AdminDashboard = () => {
       description={`Hello ${name}.`}
       className="container"
     >
-      <div className="row">
+      <div className="row my-4">
         <div className="col-3">{adminLinks()}</div>
         <div className="col-9">{adminInfo()}</div>
       </div>

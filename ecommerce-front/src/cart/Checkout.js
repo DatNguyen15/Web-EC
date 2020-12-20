@@ -126,7 +126,7 @@ const Checkout = ({ products }) => {
       {data.clientToken !== null && products.length > 0 ? (
         <div>
           <div className="form-group">
-            <label className="text">Delivery address:</label>
+            <h5 className="text">Delivery address:</h5>
             <textarea
               onChange={handleAddress}
               className="form-control"
@@ -156,7 +156,7 @@ const Checkout = ({ products }) => {
       className="alert alert-danger"
       style={{ display: error ? "" : "none" }}
     >
-      {error}
+      <i className="fas fa-exclamation-circle"></i> {error}
     </div>
   );
 
@@ -165,13 +165,13 @@ const Checkout = ({ products }) => {
       className="alert alert-info"
       style={{ display: success ? "" : "none" }}
     >
-      Thanks ! Your payment was successful!
+      <i class="fas fa-check-circle"></i> Thanks ! Your payment was successful!
     </div>
   );
 
   const showLoading = (loading) => loading && <h3>Loading...</h3>;
   return (
-    <div>
+    <div className="center">
       <h3>Your cart summary:</h3>
       <h4 style={{ color: "red", fontWeight: "700" }}>Total: ${getTotal()}</h4>
       {showLoading(data.loading)}

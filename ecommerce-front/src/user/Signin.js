@@ -116,7 +116,7 @@ const Signin = () => {
         <div className="copy-right text-center">
           <p>© 2020 Invent Signup. All rights reserved | Design by DatNguyen</p>
           <a href="/" target="_blank">
-            ZaZou
+            HDShop
           </a>
         </div>
       </form>
@@ -157,7 +157,7 @@ const Signin = () => {
             <div className="main-content">
               <h2>WELLCOME TO ZAZOU</h2>
               <p>
-                Zazou is the best choose for you. Please login for order
+                HDShop is the best choose for you. Please login for order
                 product. If you don't have account. Press the button REGISTER
                 for create new account!!!
               </p>
