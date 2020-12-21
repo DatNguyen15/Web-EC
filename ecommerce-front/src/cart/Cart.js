@@ -29,15 +29,14 @@ const Cart = () => {
               <thead style={{ background: "black", color: "whitesmoke" }}>
                 <tr>
                   <th></th>
-                  <th>Name</th>
-
-                  <th>Price</th>
+                  <th>Name:</th>
+                  <th>Price: </th>
                   <th></th>
                   <th></th>
                   <th></th>
-                  <th>Picture</th>
-                  <th>Quantity</th>
-                  <th>Total Price</th>
+                  <th>Picture:</th>
+                  <th>Quantity:</th>
+                  <th>Total:</th>
                 </tr>
               </thead>
               <tbody>

@@ -5,7 +5,6 @@ import "../dist/css/reset.css";
 import "../dist/css/cardproduct.css";
 import "@fortawesome/fontawesome-free/css/all.css";
 import { addItem } from "./../cart/cartHelpers";
-import Product from "./../product/Product";
 
 const Card = ({ product }) => {
   const [redirect, setRedirect] = useState(false);
@@ -63,7 +62,7 @@ const Card = ({ product }) => {
           <br />
 
           <div class="button-card">
-            <Link to={`product/${product._id}`}>
+            <Link to={`/product/${product._id}`}>
               <button className="btns1 btn">View Product</button>
             </Link>
             {product.quantity < 0 && (
