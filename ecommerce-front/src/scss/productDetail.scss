@@ -60,18 +60,19 @@
       margin-top: 30px;
       &:hover {
         .add-cart {
-          background-color: rgba(black, 0);
+          background-color: #ffaa00;
+          border: 2px solid #ffaa00;
         }
         i {
           color: black;
         }
       }
       .add-cart {
-        border: 2px solid black;
+        border: 2px solid red;
         border-radius: 3px;
         padding: 10px 50px;
         width: 80%;
-        background: black;
+        background: red;
         opacity: 1;
         color: whitesmoke;
         transition: all 0.5s;
@@ -85,10 +86,10 @@
 }
 .item {
   h4 {
-    font-size: 22px;
+    font-size: 21px;
     span {
       font-size: 19px;
-      color: #1db954;
+      color: #007bff;
     }
     .red {
       color: red;

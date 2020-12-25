@@ -110,7 +110,7 @@ const Shop = () => {
       ></Layout>
       <Scroll showBelow={250} />
       <Carousel />
-      <div className="row mb-5">
+      <div className="row mb-5" style={{ marginRight: "0" }}>
         <div
           className="col-3"
           style={{
@@ -171,6 +171,7 @@ const Shop = () => {
               justifyContent: "space-between",
               alignItems: "center",
               marginBottom: "20px",
+              //marginRight: "0",
             }}
           >
             <h3 className="">Product</h3>

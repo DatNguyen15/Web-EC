@@ -84,7 +84,11 @@ const ManageCategory = () => {
                       ></i>
                     </span>
                   </Link>
-                  <span onClick={() => destroy(c._id)} className="pl-3">
+                  <span
+                    onClick={() => destroy(c._id)}
+                    className="pl-3"
+                    style={{ cursor: "pointer" }}
+                  >
                     <i
                       style={{
                         background: "red",

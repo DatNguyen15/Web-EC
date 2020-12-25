@@ -37,10 +37,10 @@ const Orders = () => {
   const showOdersLength = () => {
     if (orders.length > 0) {
       return (
-        <h1 className="text-danger display-2">Total orders: {orders.length}</h1>
+        <h2 className="text-danger display-2">Total orders: {orders.length}</h2>
       );
     } else {
-      return <h1 className="text-danger">No Orders</h1>;
+      return <h2 className="text-danger">No Orders</h2>;
     }
   };
   const showInput = (key, value) => (
@@ -62,7 +62,7 @@ const Orders = () => {
   };
   const showStatus = (o) => (
     <div className="form-group">
-      <h3 className="mark mb-4"> {o.status}</h3>
+      <h4 className="mark mb-4 center"> {o.status}</h4>
       <select
         className="form-control"
         style={{ color: "black" }}
@@ -80,7 +80,7 @@ const Orders = () => {
 
   return (
     <Layout
-      title="Add a new category"
+      title="Manage Order"
       description={`Hello ${user.name},`}
       className="container"
     >
@@ -94,11 +94,21 @@ const Orders = () => {
                 key={oIndex}
                 style={{ borderBottom: "3px solid black" }}
               >
-                <h2 className="mb-5">
+                {/* <h2 className="mb-5 list-group-item">
                   <span className="bg-primary">Order ID: {o._id}</span>
-                </h2>
+                </h2> */}
                 <ul className="list-group mb-2">
-                  {/* <li className="list-group-item">Order ID: {o._id}</li> */}
+                  <li
+                    className="list-group-item"
+                    style={{
+                      background: "red",
+                      color: "whitesmoke",
+                      fontSize: "23px",
+                      fontWeight: "600",
+                    }}
+                  >
+                    Order ID: {o._id}
+                  </li>
 
                   <li className="list-group-item">{showStatus(o)}</li>
                   <li className="list-group-item">
