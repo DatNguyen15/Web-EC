@@ -66,12 +66,18 @@ const ManageProducts = () => {
                 fontWeight: "600",
               }}
             >
-              Name
+              <span>Name</span>
+              <span style={{ paddingLeft: "600px" }}>Quantity</span>
             </li>
             {products.map((p, i) => (
               <li className="list-group-item d-flex justify-content-between align-items-center">
-                <strong>{p.name}</strong>
+                {p.quantity > 0 ? (
+                  <strong>{p.name}</strong>
+                ) : (
+                  <strong style={{ color: "red" }}>{p.name}</strong>
+                )}
                 <div>
+                  <strong style={{ marginRight: "300px" }}>{p.quantity}</strong>
                   <Link to={`/admin/product/update/${p._id}`}>
                     <span className="">
                       <i
@@ -84,7 +90,11 @@ const ManageProducts = () => {
                       ></i>
                     </span>
                   </Link>
-                  <span onClick={() => destroy(p._id)} className="pl-3">
+                  <span
+                    onClick={() => destroy(p._id)}
+                    className="pl-3"
+                    style={{ cursor: "pointer" }}
+                  >
                     <i
                       style={{
                         background: "red",

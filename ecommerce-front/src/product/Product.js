@@ -101,17 +101,25 @@ const Product = (props) => {
           </div>
           <div className="col-4 item">
             <h4>
-              Name: <span style={{ fontWeight: "500" }}>{product.name}</span>
-            </h4>
-            <h4>
-              Price:
-              <span className="red">
-                {product.price}
-                <i class="fas fa-dollar-sign"></i>
+              Name:{" "}
+              <span className="" style={{ fontWeight: "500" }}>
+                {product.name}
               </span>
             </h4>
             <h4>
-              Description: <span>{product.description}</span>
+              Price:{" "}
+              <span className="red">
+                {product.price} <i class="fas fa-dollar-sign"></i>
+              </span>
+            </h4>
+            <h4>
+              Description:{" "}
+              <span
+                className="text-muted"
+                style={{ fontWeight: "350", fontSize: "18px" }}
+              >
+                {product.description}
+              </span>
             </h4>
             <div className="break"></div>
             <div className="grift">
