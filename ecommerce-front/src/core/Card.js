@@ -47,7 +47,10 @@ const Card = ({ product }) => {
           <div className="hide-img">
             <ShowImage item={product} url="product" />
           </div>
-          <p className=" no-bt pt-1">Description: {product.description}</p>
+          <p className=" no-bt pt-1 text-truncate">
+            Description:{" "}
+            <span className="text-muted">{product.description}</span>
+          </p>
           <p className="no-bt" style={{ fontWeight: "700", color: "red" }}>
             Price: {product.price}$
           </p>
@@ -65,7 +68,7 @@ const Card = ({ product }) => {
             <Link to={`/product/${product._id}`}>
               <button className="btns1 btn">View Product</button>
             </Link>
-            {product.quantity < 0 && (
+            {product.quantity == 0 && (
               <button
                 style={{ padding: "10px 55px" }}
                 className="btn btn-danger"
