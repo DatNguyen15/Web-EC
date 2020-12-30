@@ -41,6 +41,11 @@ exports.signin = (req, res) => {
         error: "Email and password don't match",
       });
     }
+    if (!user.isActive) {
+      return res.status(501).json({
+        error: "This account is blocked",
+      });
+    }
 
     //generate a signed token with user id and secret
     const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET);
@@ -78,4 +83,24 @@ exports.isAdmin = (req, res, next) => {
     });
   }
   next();
+};
+
+exports.isAdminToken = (req, res, next) => {
+  const authorization = req.headers.authorization;
+
+  const token = authorization.split(" ")[1];
+
+  const decoded = jwt.decode(token, process.env.JWT_SECRET);
+
+  const userId = decoded._id;
+
+  const user = User.findById(userId)
+    .then((user) => {
+      next();
+    })
+    .catch((error) => {
+      if (user && user.role !== 1) {
+        return res.status(401).json({ error: "Not Authorization " + error });
+      }
+    });
 };
