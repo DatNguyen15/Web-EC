@@ -80,3 +80,52 @@ exports.purchaseHistory = (req, res) => {
       res.json(orders);
     });
 };
+exports.list = (req, res) => {
+  User.find().exec((err, data) => {
+    if (err) {
+      return res.status(400).json({
+        error: errorHandler(err),
+      });
+    }
+    res.json(data);
+  });
+};
+
+exports.updateActive = (req, res) => {
+  User.findOne({ _id: req.params.userId })
+    .exec()
+    .then((user) => {
+      User.findByIdAndUpdate(user.id, { isActive: !user.isActive }).then(
+        (user) => {
+          return res.json(user);
+        }
+      );
+    })
+    .catch((error) => res.status(500).json(error));
+};
+// exports.updateAcitve = (req, res) => {
+//   const user = req.user;
+//   user.isActive = req.body.isActive;
+//   user.save((err, data) => {
+//     if (err) {
+//       return res.status(400).json({
+//         error: errorHandler(err),
+//       });
+//     }
+//     res.json(data);
+//   });
+// };
+// exports.updateAcitve = (req, res) => {
+//   User.update(
+//     { _id: req.body.orderId },
+//     { $set: { isActive: req.body.isActive } },
+//     (err, order) => {
+//       if (err) {
+//         return res.status(400).json({
+//           error: errorHandler(err),
+//         });
+//       }
+//       res.json(order);
+//     }
+//   );
+// };
