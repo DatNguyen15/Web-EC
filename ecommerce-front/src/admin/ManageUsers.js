@@ -35,7 +35,17 @@ const ManageUsers = () => {
   useEffect(() => {
     loadUsers();
   }, []);
-
+  const goBack = () => (
+    <div className="my-3">
+      <Link style={{ color: "red" }} to="/admin/dashboard">
+        <i
+          style={{ fontSize: "1rem", fontWeight: "600" }}
+          className="far fa-angle-double-left mr-1"
+        ></i>
+        Back to Dashboard
+      </Link>
+    </div>
+  );
   return (
     <Layout
       title="Manage User"
@@ -89,6 +99,7 @@ const ManageUsers = () => {
               </li>
             ))}
           </ul>
+          <div className="center">{goBack()}</div>
         </div>
         {/* {JSON.stringify(users)} */}
       </div>
