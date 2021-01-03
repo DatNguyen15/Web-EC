@@ -114,8 +114,18 @@ const Signin = () => {
           Login
         </button>
         <div className="copy-right text-center">
-          <p>© 2020 Invent Signup. All rights reserved | Design by DatNguyen</p>
-          <a href="/" target="_blank">
+          <p style={{ fontSize: "12px" }}>
+            © 2020 Invent Signup. All rights reserved | Design by{" "}
+            <a
+              style={{ fontSize: "12px", color: "#52a494" }}
+              target="_blank"
+              rel="noreferrer"
+              href="https://www.facebook.com/profile.php?id=100006788855468"
+            >
+              DatNguyen
+            </a>
+          </p>
+          <a href="/" target="_blank" style={{ fontSize: "12px" }}>
             HDShop
           </a>
         </div>
@@ -155,7 +165,7 @@ const Signin = () => {
         <div className="col-8">
           <div className="content">
             <div className="main-content">
-              <h2>WELLCOME TO ZAZOU</h2>
+              <h2>WELLCOME TO HDSHOP</h2>
               <p>
                 HDShop is the best choose for you. Please login for order
                 product. If you don't have account. Press the button REGISTER

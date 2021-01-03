@@ -87,7 +87,7 @@ const Product = (props) => {
                   </div>
                 </Link>
               )}
-              {product.quantity < 0 && (
+              {product.quantity == 0 && (
                 <div className="bt-card">
                   <button
                     className="btn btn-danger"

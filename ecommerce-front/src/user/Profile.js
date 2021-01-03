@@ -82,6 +82,7 @@ const Profile = ({ match }) => {
           onChange={handelChange("email")}
           className="form-control"
           value={email}
+          readOnly
         ></input>
       </div>
       <div className="form-group">

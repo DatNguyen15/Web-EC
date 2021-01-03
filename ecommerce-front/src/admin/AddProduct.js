@@ -174,6 +174,17 @@ const AddProduct = () => {
       <h2>{`${createProduct} is created!`}</h2>
     </div>
   );
+  const goBack = () => (
+    <div className="my-3">
+      <Link style={{ color: "red" }} to="/admin/dashboard">
+        <i
+          style={{ fontSize: "1rem", fontWeight: "600" }}
+          className="far fa-angle-double-left mr-1"
+        ></i>
+        Back to Dashboard
+      </Link>
+    </div>
+  );
   const showLoading = () =>
     loading && (
       <div className="alert alert-success">
@@ -193,6 +204,7 @@ const AddProduct = () => {
           {showSuccess()}
           {showError()}
           {newPostForm()}
+          {goBack()}
         </div>
       </div>
     </Layout>

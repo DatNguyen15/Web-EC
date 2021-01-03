@@ -30,6 +30,17 @@ const ManageCategory = () => {
   useEffect(() => {
     loadCategories();
   }, []);
+  const goBack = () => (
+    <div className="mt-5">
+      <Link style={{ color: "red" }} to="/admin/dashboard">
+        <i
+          style={{ fontSize: "1rem", fontWeight: "600" }}
+          className="far fa-angle-double-left mr-1"
+        ></i>
+        Back to Dashboard
+      </Link>
+    </div>
+  );
 
   return (
     <Layout
@@ -102,8 +113,8 @@ const ManageCategory = () => {
               </li>
             ))}
           </ul>
+          <div className="center">{goBack()}</div>
         </div>
-        {/* {JSON.stringify(categories.length)} */}
       </div>
     </Layout>
   );

@@ -4,6 +4,7 @@ import { isAuthenticated } from "./../auth/index";
 import { Link } from "react-router-dom";
 import { listOrders, getStatusValues, updateOrderStatus } from "./apiAdmin";
 import moment from "moment";
+import Scroll from "./../core/Scroll";
 const Orders = () => {
   const [orders, setOrders] = useState([]);
   const [statusValue, setStatusValues] = useState([]);
@@ -37,7 +38,9 @@ const Orders = () => {
   const showOdersLength = () => {
     if (orders.length > 0) {
       return (
-        <h2 className="text-danger display-2">Total orders: {orders.length}</h2>
+        <h3 className="text-danger display-2 center">
+          Total orders: {orders.length}
+        </h3>
       );
     } else {
       return <h2 className="text-danger">No Orders</h2>;
@@ -84,6 +87,7 @@ const Orders = () => {
       description={`Hello ${user.name},`}
       className="container"
     >
+      <Scroll showBelow={250} />
       <div className="row">
         <div className="col-md-8 offset-md-2">
           {showOdersLength()}
