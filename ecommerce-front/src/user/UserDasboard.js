@@ -84,14 +84,23 @@ const Dashboard = () => {
               return (
                 <div>
                   <hr />
+                  <h2 className="center list-group">Status: {h.status}</h2>
                   {h.products.map((p, i) => {
                     return (
-                      <div key={i}>
-                        <h6>Product name: {p.name}</h6>
-                        <h6>Product price: {p.price}</h6>
-                        <h6>Product count: {p.count}</h6>
-                        <h6>Purchase date: {Date(p.createdAt)}</h6>
-                      </div>
+                      <ul key={i}>
+                        <li className=" list-group-item">
+                          Product name: {p.name}
+                        </li>
+                        <li className="list-group-item">
+                          Product price: {p.price}
+                        </li>
+                        <li className="list-group-item">
+                          Product count: {p.count}
+                        </li>
+                        <li className="list-group-item">
+                          Purchase date: {Date(p.createdAt)}
+                        </li>
+                      </ul>
                     );
                   })}
                 </div>

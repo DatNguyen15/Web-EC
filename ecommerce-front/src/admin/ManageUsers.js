@@ -2,36 +2,41 @@ import React, { useState, useEffect } from "react";
 import Layout from "../core/Layout";
 import { isAuthenticated } from "./../auth/index";
 import { Link } from "react-router-dom";
-import { getCategories, deleteCategory } from "./apiAdmin";
+import { getUsers, updateAcitve } from "./apiAdmin";
 
-const ManageCategory = () => {
-  const [categories, setCategories] = useState([]);
+const ManageUsers = () => {
+  const [users, setUsers] = useState([]);
+  const [values, setActive] = useState({ isActive: true });
+
   const { user, token } = isAuthenticated();
-  const loadCategories = () => {
-    getCategories().then((data) => {
+  console.log(user);
+  const loadUsers = () => {
+    getUsers().then((data) => {
       if (data.error) {
         console.log(data.error);
       } else {
-        setCategories(data);
+        setUsers(data);
       }
     });
   };
 
-  const destroy = (categoryId) => {
-    deleteCategory(categoryId, user._id, token).then((data) => {
+  const updateActives = (userId) => {
+    const isActive = !user.isActive;
+    updateAcitve(userId, token, isActive).then((data) => {
       if (data.error) {
         console.log(data.error);
       } else {
-        loadCategories();
+        setActive({ ...values, isActive: false });
+        loadUsers();
       }
     });
   };
 
   useEffect(() => {
-    loadCategories();
+    loadUsers();
   }, []);
   const goBack = () => (
-    <div className="mt-5">
+    <div className="my-3">
       <Link style={{ color: "red" }} to="/admin/dashboard">
         <i
           style={{ fontSize: "1rem", fontWeight: "600" }}
@@ -41,28 +46,17 @@ const ManageCategory = () => {
       </Link>
     </div>
   );
-
   return (
     <Layout
-      title="Manage Category"
-      description="Perform CRUD categories"
+      title="Manage User"
+      description="Block or Active User"
       className="container"
     >
       <div className="row mt-5">
-        <div className="col-8">
+        <div className="col">
           <h2 className=" mb-4" style={{ color: "red", fontWeight: "600" }}>
-            MANAGE CATEGORY
+            MANAGE USER
           </h2>
-        </div>
-        <div className="col-4 center">
-          <Link to="/create/category">
-            <button
-              className="btn btn-success"
-              style={{ fontWeight: "500", padding: "10px 40px" }}
-            >
-              <i class="fas fa-plus"></i> CATEGORY
-            </button>
-          </Link>
         </div>
       </div>
       <div className="row my-4">
@@ -79,35 +73,27 @@ const ManageCategory = () => {
             >
               Name
             </li>
-            {categories.map((c, i) => (
+            {users.map((c, i) => (
               <li className="list-group-item d-flex justify-content-between align-items-center">
-                <strong>{c.name}</strong>
+                <strong>{c.email}</strong>
                 <div>
-                  <Link to={`/admin/category/update/${c._id}`}>
-                    <span className="">
-                      <i
-                        style={{
-                          background: "white",
-                          padding: "4px",
-                          color: "#007bff",
-                        }}
-                        class="far fa-edit"
-                      ></i>
-                    </span>
-                  </Link>
                   <span
-                    onClick={() => destroy(c._id)}
+                    onClick={() => updateActives(c._id)}
                     className="pl-3"
                     style={{ cursor: "pointer" }}
                   >
-                    <i
-                      style={{
-                        background: "red",
-                        padding: "4px",
-                        color: "whitesmoke",
-                      }}
-                      class="far fa-trash-alt"
-                    ></i>
+                    {c.isActive === false ? (
+                      <button className="btn btn-danger">
+                        <i className="fas fa-lock"></i>
+                      </button>
+                    ) : (
+                      <button
+                        className="btn btn-primary"
+                        // style={{ color: "red" }}
+                      >
+                        <i className="fas fa-unlock-alt"></i>
+                      </button>
+                    )}
                   </span>
                 </div>
               </li>
@@ -115,8 +101,9 @@ const ManageCategory = () => {
           </ul>
           <div className="center">{goBack()}</div>
         </div>
+        {/* {JSON.stringify(users)} */}
       </div>
     </Layout>
   );
 };
-export default ManageCategory;
+export default ManageUsers;

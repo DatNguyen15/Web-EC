@@ -58,7 +58,7 @@ const FormCart = ({
 
       <td>{product.name}</td>
 
-      <td style={{ color: "red", fontWeight: "800" }}>{product.price} $</td>
+      <td style={{ color: "red", fontWeight: "800" }}>${product.price}</td>
       <td></td>
       <td></td>
       <td></td>
@@ -67,7 +67,7 @@ const FormCart = ({
       </td>
       <td>{showCartUpdateOption(cartUpdate)}</td>
       <td style={{ color: "red", fontWeight: "800" }}>
-        {product.price * product.count} $
+        ${product.price * product.count}
       </td>
     </tr>
   );

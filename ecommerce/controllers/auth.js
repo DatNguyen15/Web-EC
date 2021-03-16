@@ -8,19 +8,28 @@ const { Mail } = require("./mailer");
 
 exports.signup = (req, res) => {
   console.log("req.body", req.body);
+
   const user = new User(req.body);
-  user.save((err, user) => {
-    if (err) {
+  const { name, email, password } = req.body;
+  User.findOne({ email }, (err, check) => {
+    if (err || check) {
       return res.status(400).json({
-        err: errorHandler(err),
+        error: "Email already  exists !!!",
       });
     }
+    user.save((err, user) => {
+      if (err) {
+        return res.status(400).json({
+          err: errorHandler(err),
+        });
+      }
 
-    //Mail(user);
-    user.salt = undefined;
-    user.hasshed_password = undefined;
-    res.json({
-      user,
+      //Mail(user);
+      user.salt = undefined;
+      user.hasshed_password = undefined;
+      res.json({
+        user,
+      });
     });
   });
 };
@@ -39,6 +48,11 @@ exports.signin = (req, res) => {
     if (!user.authenticate(password)) {
       return res.status(401).json({
         error: "Email and password don't match",
+      });
+    }
+    if (!user.isActive) {
+      return res.status(501).json({
+        error: "This account is blocked",
       });
     }
 
@@ -78,4 +92,24 @@ exports.isAdmin = (req, res, next) => {
     });
   }
   next();
+};
+
+exports.isAdminToken = (req, res, next) => {
+  const authorization = req.headers.authorization;
+
+  const token = authorization.split(" ")[1];
+
+  const decoded = jwt.decode(token, process.env.JWT_SECRET);
+
+  const userId = decoded._id;
+
+  const user = User.findById(userId)
+    .then((user) => {
+      next();
+    })
+    .catch((error) => {
+      if (user && user.role !== 1) {
+        return res.status(401).json({ error: "Not Authorization " + error });
+      }
+    });
 };

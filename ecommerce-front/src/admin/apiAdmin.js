@@ -187,3 +187,28 @@ export const updateCategory = (categoryId, userId, token, category) => {
     })
     .catch((err) => console.log(err));
 };
+
+export const getUsers = () => {
+  return fetch(`${API}/users`, {
+    method: "GET",
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+export const updateAcitve = (userId, token, isActive) => {
+  return fetch(`${API}/user/active/${userId}`, {
+    method: "PUT",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ isActive, userId, token }),
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
