@@ -14,7 +14,7 @@ const Carousel = () => {
     slidesToScroll: 1,
   };
   return (
-    <div className="carou">
+    <div className="carou ">
       <Slider {...settings}>
         <div className="size-carou">
           <img src="https://www.buyncellcanada.ca/wp-content/uploads/2018/11/Banner2.jpg"></img>

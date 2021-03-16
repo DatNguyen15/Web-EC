@@ -109,14 +109,15 @@ const Product = (props) => {
             <h4>
               Price:{" "}
               <span className="red">
-                {product.price} <i class="fas fa-dollar-sign"></i>
+                <i class="fas fa-dollar-sign"></i>
+                {product.price}
               </span>
             </h4>
             <h4>
               Description:{" "}
               <span
                 className="text-muted"
-                style={{ fontWeight: "350", fontSize: "18px" }}
+                style={{ fontWeight: "400", fontSize: "16px" }}
               >
                 {product.description}
               </span>

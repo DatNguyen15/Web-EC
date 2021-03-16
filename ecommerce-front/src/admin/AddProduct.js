@@ -199,7 +199,7 @@ const AddProduct = () => {
       className=" container"
     >
       <div className="row ">
-        <div className="col-md-8 offset-md-2">
+        <div className="col-md-8 offset-md-2 mt-2">
           {showLoading()}
           {showSuccess()}
           {showError()}
