@@ -52,16 +52,16 @@ const Card = ({ product }) => {
             <span className="text-muted">{product.description}</span>
           </p>
           <p className="no-bt" style={{ fontWeight: "700", color: "red" }}>
-            Price: {product.price}$
+            Price: ${product.price}
           </p>
-          <p className="no-bt pr-1">
+          {/* <p className="no-bt pr-1">
             Rating:
             <i className="i fas fa-star"></i>
             <i className="i fas fa-star"></i>
             <i className="i fas fa-star"></i>
             <i className="i fas fa-star"></i>
             <i className="i fas fa-star"></i>
-          </p>
+          </p> */}
           <br />
 
           <div class="button-card">

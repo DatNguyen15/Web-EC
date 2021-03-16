@@ -75,7 +75,7 @@ const ManageUsers = () => {
             </li>
             {users.map((c, i) => (
               <li className="list-group-item d-flex justify-content-between align-items-center">
-                <strong>{c.name}</strong>
+                <strong>{c.email}</strong>
                 <div>
                   <span
                     onClick={() => updateActives(c._id)}
